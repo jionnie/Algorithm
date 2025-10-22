@@ -1,21 +1,16 @@
 class Solution {
     public boolean solution(int x) {
-        boolean answer = false;
-        int length = String.valueOf(x).length();
-        int[] nums = new int[length];
+        String[] nums = String.valueOf(x).split("");
         int sum = 0;
         
-        int xCopy = x;
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = xCopy % 10;
-            sum += nums[i];
-            xCopy /= 10;
+        for (String n : nums) {
+            sum += Integer.parseInt(n);   
         }
         
         if (x % sum == 0) {
-            answer = true;
+            return true;
         }
         
-        return answer;
+        return false;
     }
 }
