@@ -10,39 +10,13 @@ class Solution {
         /**
         * 의사 코드
         * 1. 주어진 문자열 s를 char 배열로 변환한다.
-        * 2. lower와 upper에 각각 소문자와 대문자를 분리해서 String에 저장한다.
-        * 3. 각각을 다시 char 배열로 변환 후 정렬한다.
-        * 4. lower와 upper를 합친다.
+        * 2. Arrays.sort()를 이용해 정렬한다.
+        * 3. StringBuilder를 이용해 reverse 한다.
         */
         char[] arr = s.toCharArray();
         
-        String lower = "";
-        String upper = "";
+        Arrays.sort(arr);
         
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] >= 65 && arr[i] <= 90) {
-                upper += arr[i];
-            } else {
-                lower += arr[i];
-            }
-        }
-        
-        char[] upperArr = upper.toCharArray();
-        char[] lowerArr = lower.toCharArray();
-        upper = "";
-        lower = "";
-        
-        Arrays.sort(upperArr);
-        Arrays.sort(lowerArr);
-        
-        for (int i = upperArr.length - 1; i >= 0; i--) {
-            upper += upperArr[i];
-        }
-        
-        for (int i = lowerArr.length - 1; i >= 0; i--) {
-            lower += lowerArr[i];
-        }
-        
-        return lower + upper;
+        return new StringBuilder(new String(arr)).reverse().toString();
     }
 }
