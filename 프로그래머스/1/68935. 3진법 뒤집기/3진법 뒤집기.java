@@ -15,12 +15,10 @@ class Solution {
         String ternary = "";
         int answer = 0;
         
-        while (n / 3 != 0) {
-            ternary += String.valueOf(n % 3);
+        while (n > 0) {
+            ternary += (n % 3);
             n /= 3;
         }
-        
-        ternary += String.valueOf(n % 3);
         
         char[] reverse = ternary.toCharArray();
         
