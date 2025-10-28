@@ -11,11 +11,9 @@ class Solution {
         * 2. 최소공배수(lcm): 주어진 두 수를 곱한 값을 최대공약수로 나누기
         */
         int[] answer = new int[2];
-        int x = Math.max(n, m);
-        int y = Math.min(n, m);
         
-        answer[0] = gcd(x, y);
-        answer[1] = (x * y) / answer[0];
+        answer[0] = gcd(n, m);
+        answer[1] = (n * m) / answer[0];
         
         return answer;
     }
