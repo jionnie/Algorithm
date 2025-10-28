@@ -12,14 +12,15 @@ class Solution {
         * 1. 10진법으로 주어진 n을 3으로 나누는데, 몫이 0이 될 때까지 나누면서 나머지를 char 배열에 저장한다.
         * 2. 다시 10진법으로 변환한다.
         */
-        String ternary = "";
+        StringBuilder sb = new StringBuilder();
         int answer = 0;
         
         while (n > 0) {
-            ternary += (n % 3);
+            sb.append(n % 3);
             n /= 3;
         }
-        
+    
+        String ternary = sb.toString();  
         char[] reverse = ternary.toCharArray();
         
         for (int i = 0; i < reverse.length; i++) {
