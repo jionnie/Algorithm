@@ -8,31 +8,24 @@ class Solution {
     public String solution(String s) {
         /**
         * 문제 풀이
-        * 1. 공백을 기준으로 단어를 분리해서 String 배열에 저장
-        * 2. 각 문자열을 char 배열로 변환
-        * 3. 인덱스가 0부터 짝수일 때마다 대문자로 변환
+        * 1. 주어진 문자열 s를 char 배열로 변환
+        * 2. 인덱스로 순회하면서 문자가 0이면 인덱스 초기화
+        * 3. 0을 만나지 않으면 인덱스를 1씩 늘리면서 홀수인지 짝수인지 판별 후 toUpperCase(), toLowerCase() 호출
+        * 4. 각 단어들은 "하나 이상의" 공백 문자로 구분되어 있다는 것에 주의
         */
         
-        String[] words = s.split(" ", -1);
-        StringBuilder sb = new StringBuilder();
-            
+        char[] words = s.toCharArray();
+        int index = 0;
+        
         for (int i = 0; i < words.length; i++) {
-            char[] word = words[i].toCharArray();
-            
-            for (int j = 0; j < word.length; j += 2) {
-                word[j] = Character.toUpperCase(word[j]);
-                if (j + 1 < word.length) {
-                    word[j + 1] = Character.toLowerCase(word[j + 1]);
-                }
-            }
-            
-            sb.append(word);
-            
-            if (i < words.length - 1) {
-                sb.append(" ");   
+            if (words[i] == ' ') {
+                index = 0; // 공백을 만나면 단어로 취급을 안함
+            } else {
+                words[i] = (index % 2 == 0) ? Character.toUpperCase(words[i]) : Character.toLowerCase(words[i]);
+                index++;
             }
         }
         
-        return sb.toString();
+        return String.valueOf(words);
     }
 }
