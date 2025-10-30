@@ -11,19 +11,17 @@ class Solution {
         /**
         * 문제 풀이
         * 1. 배열 예시 [ 1, 2, 3, 4, 5, 6, 7, 8 ]
-        * 2. 첫 번째 인덱스 값, 두 번째 인덱스 값 고정해놓고 그 다음 인덱스부터 이중 for문 돌리기
+        * 2. i: 첫 번째 for 문은 인덱스 i가 0부터 마지막에서 3번째 원소까지만 순회
+        * 3. j: 두 번째 for 문은 인덱스 j가 i + 1 부터 마지막에서 두 번째 원소까지만 순회
+        * 4. k: 세 번째 for 문은 인덱스 k가 j + 1 부터 마지막까지 순회하면서 모든 경우의 수 더해서 0일 때마다 cnt++
         */
         
         int cnt = 0;
-        int num1 = 0;
-        int num2 = 0;
         
         for (int i = 0; i < number.length - 2; i++) {
-            num1 = number[i];
             for (int j = i + 1; j < number.length - 1; j++) {
-                num2 = number[j];
                 for (int k = j + 1; k < number.length; k++) {
-                    if (num1 + num2 + number[k] == 0) {
+                    if (number[i] + number[j] + number[k] == 0) {
                         cnt++;
                     }
                 }
