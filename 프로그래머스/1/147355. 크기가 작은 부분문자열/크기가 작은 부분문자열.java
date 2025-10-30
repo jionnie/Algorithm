@@ -22,6 +22,6 @@ class Solution {
             }
         }
         
-        return (int) cnt;
+        return cnt;
     }
 }
