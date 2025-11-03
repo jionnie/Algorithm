@@ -10,28 +10,14 @@ class Solution {
         * 1. 모든 명함을 길이가 긴쪽으로 돌린다.
         * 2. 그 다음 모든 명함을 만족하는 크기 중에 가장 작은 값을 리턴한다.
         */
-        int answer = 0;
-        
-        for (int i = 0; i < sizes.length; i++) {
-            if (sizes[i][0] < sizes[i][1]) { // 2차원 배열의 길이는 무조건 2
-                int temp = sizes[i][1];      // 긴 쪽을 한쪽(0번 인덱스)으로 정렬
-                sizes[i][1] = sizes[i][0];
-                sizes[i][0] = temp;
-            }
-        }
-        
         int width = 0;
-        int length = 0;
-        for (int i = 0; i < sizes.length; i++) {
-            if (width <= sizes[i][0]) {
-                width = sizes[i][0];
-            }
-            
-            if (length <= sizes[i][1]) {
-                length = sizes[i][1];
-            }
+        int height = 0;
+        
+        for (int[] size : sizes) {
+            width = Math.max(width, Math.max(size[0], size[1])); // 가로를 긴 쪽으로
+            height = Math.max(height, Math.min(size[0], size[1]));
         }
         
-        return width * length;
+        return width * height;
     }
 }
