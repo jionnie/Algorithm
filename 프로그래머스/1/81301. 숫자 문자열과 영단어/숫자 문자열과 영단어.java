@@ -11,17 +11,13 @@ class Solution {
         * 문제 풀이
         * 1. replaceAll 활용해서 단어를 숫자로 대체
         */
-        String answer = s.replaceAll("zero", "0");
-        answer = answer.replaceAll("one", "1");
-        answer = answer.replaceAll("two", "2");
-        answer = answer.replaceAll("three", "3");
-        answer = answer.replaceAll("four", "4");
-        answer = answer.replaceAll("five", "5");
-        answer = answer.replaceAll("six", "6");
-        answer = answer.replaceAll("seven", "7");
-        answer = answer.replaceAll("eight", "8");
-        answer = answer.replaceAll("nine", "9");
+        String[] numbers = new String[] { 
+            "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
         
-        return Integer.parseInt(answer);
+        for (int i = 0; i < numbers.length; i++) {
+            s = s.replaceAll(numbers[i], String.valueOf(i));
+        }
+        
+        return Integer.parseInt(s);
     }
 }
