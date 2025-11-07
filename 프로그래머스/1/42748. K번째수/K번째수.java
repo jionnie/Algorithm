@@ -12,17 +12,22 @@ class Solution {
         /**
         * 문제 풀이
         * 1. commands 배열을 돌면서 i, j, k 값을 얻는다.
-        * 2. array를 i번째부터 j번째까지 얻고 정렬한다. (1부터 시작임)
+        * 2. array를 i번째부터 j번째까지 list에 저장하고 정렬한다. (1부터 시작임)
         * 3. k번째를 얻는다.
+        * 4. list를 비우고 다시 반복한다.
         */
         int[] answer = new int[commands.length];
+        List<Integer> list = new ArrayList<>();
         
         for (int i = 0; i < commands.length; i++) {
-            int[] temp = Arrays.copyOfRange(array, commands[i][0] - 1, commands[i][1]);
-            Arrays.sort(temp);
-            answer[i] = temp[commands[i][2] - 1];
+            for (int j = commands[i][0] - 1; j < commands[i][1]; j++) {
+                list.add(array[j]);
+            }
+            
+            Collections.sort(list);
+            answer[i] = list.get(commands[i][2] - 1).intValue();
+            list.clear();
         }
-        
         return answer;
     }
 }
