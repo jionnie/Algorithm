@@ -10,7 +10,7 @@ class Solution {
         /**
         * 문제 풀이
         * 1. 이중 for 문을 돌면서 모든 경우의 수 탐색
-        * 2. HashSet으로 중복 저장 안 되도록 함
+        * 2. TreeSet으로 중복 저장 안 되도록 함
         */
         Set<Integer> set = new TreeSet<>();
         
