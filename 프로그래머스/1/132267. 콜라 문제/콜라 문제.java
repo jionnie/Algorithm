@@ -17,14 +17,13 @@ class Solution {
         * 3. 다시 받은 콜라 병(새 콜라)을 기준으로 반복한다.
         * 4. 3번을 진행할 때, 마트에 주지 않은 빈 병 수가 있다면 더한다.
         */
-        cnt += (n / a) * b; // 마트에서 얻은 병 수(마실 거라서 빈 병이나 마찬가지)
+        int cnt = 0;
         
-        if (n % a != 0) { // 마트에 주지 못한 나머지 빈 병 수
-            n = ((n / a) * b) + (n % a);
-        } else {
-            n = (n / a) * b;  
-        } 
+        while (n >= a) {
+            cnt += (n / a) * b;
+            n = (n / a) * b + (n % a);
+        }
         
-        return (n < a) ? cnt : solution(a, b, n);
+        return cnt;
     }
 }
