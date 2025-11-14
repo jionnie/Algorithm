@@ -21,10 +21,8 @@ class Solution {
         for (String word : goal) {
             if (i < cards1.length && word.equals(cards1[i])) {
                 i++;          
-                continue;
             } else if (j < cards2.length && word.equals(cards2[j])) {
                 j++;
-                continue;
             } else {
                 answer = "No";
                 break;
