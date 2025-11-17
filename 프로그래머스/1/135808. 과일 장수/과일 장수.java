@@ -18,7 +18,6 @@ class Solution {
         * 2. 인덱스를 m개씩 뒤로 돌면서 최솟값을 찍어낸다.
         * 3. 최솟값 * m 한 값을 반복적으로 더해준다.
         */
-        int min = 0;
         int profit = 0;
 
         Arrays.sort(score);
