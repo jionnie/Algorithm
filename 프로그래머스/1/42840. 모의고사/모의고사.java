@@ -25,25 +25,15 @@ class Solution {
         mathQuitter[0] = new int[] { 1, 2, 3, 4, 5 };
         mathQuitter[1] = new int[] { 2, 1, 2, 3, 2, 4, 2, 5 };
         mathQuitter[2] = new int[] { 3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
-   
-        int k = 0;
+        
         int[] cntOfAnswer = new int[3];
         
         for (int i = 0; i < mathQuitter.length; i++) {
             for (int j = 0; j < answers.length; j++) {
-                if (k == mathQuitter[i].length) {
-                        k = 0;
-                    }
-                
-                if (answers[j] == mathQuitter[i][k]) {
+                if (answers[j] == mathQuitter[i][j % mathQuitter[i].length]) {
                     cntOfAnswer[i]++;
-                    k++;
-                    
-                    continue;
                 }
-                k++;
             }
-            k = 0;
         }
         
         int max = Arrays.stream(cntOfAnswer).max().getAsInt();
@@ -53,8 +43,6 @@ class Solution {
                 answer.add(i + 1);
             }
         }
-
-        Collections.sort(answer);
         
         return answer.stream().mapToInt(Integer::intValue).toArray();            
     }
