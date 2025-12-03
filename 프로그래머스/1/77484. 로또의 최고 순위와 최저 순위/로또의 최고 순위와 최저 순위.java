@@ -8,13 +8,13 @@ class Solution {
     public int[] solution(int[] lottos, int[] win_nums) {
         /**
         * 문제 풀이
-        * 1. 각 배열을 정렬한 후 비교해서 같은 값이 있을 때마다 카운트
-        * 2. lottos에서 0이 있는 자리를 만날 때마다 0의 개수를 카운트
+        * 1. lottos에서 0이 있는 자리를 만날 때마다 0의 개수(zero)를 카운트
+        * 2. 각 배열을 비교해서 같은 값이 있을 때마다 일치하는 개수(correct) 카운트
         * 3. 1번에서 구한 수에서 0의 자리 수만큼 다 더하면 최고 순위, 더하지 않으면 최저 순위
         */
+        int[] answer = new int[2];
         int correct = 0;
         int zero = 0;
-        int[] answer = new int[2];
             
         for (int i = 0; i < lottos.length; i++) {
             if (lottos[i] == 0) {
@@ -23,7 +23,6 @@ class Solution {
                 }
             
             for (int j = 0; j < win_nums.length; j++) {
-                
                 if (lottos[i] == win_nums[j]) {
                     correct++;
                 }
